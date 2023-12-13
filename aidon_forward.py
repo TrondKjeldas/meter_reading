@@ -27,6 +27,13 @@ def aidon_callback(fields):
 	if 'p_act_in' in fields:
 		hi.post("aidon", "power", "%.03f" % (fields['p_act_in']/1000.0), hass_name="Effekt", hass_unit="kW", ts=ts)
 
+	if 'ul1' in fields:
+		hi.post("aidon", "voltage_1", "%.03f" % (fields['ul1']), hass_name="Spenning", hass_unit="V", ts=ts)
+	if 'ul2' in fields:
+		hi.post("aidon", "voltage_2", "%.03f" % (fields['ul2']), hass_name="Spenning", hass_unit="V", ts=ts)
+	if 'ul3' in fields:
+		hi.post("aidon", "voltage_3", "%.03f" % (fields['ul3']), hass_name="Spenning", hass_unit="V", ts=ts)
+
 	if ('il1' in fields) and args.influx_host:
 		hi.post_influx("voltage", "aidon_p1", "%.01f" % fields['ul1'], ts=ts)
 		hi.post_influx("voltage", "aidon_p2", "%.01f" % fields['ul2'], ts=ts)
@@ -38,7 +45,7 @@ def aidon_callback(fields):
 		hi.post("aidon", "energy", "%.02f" % fields['energy_act_in'], hass_name="Energi", hass_unit="kWh", ts=ts)
 
 a = aidon(aidon_callback)
-				
+
 while(1):
 	while ser.inWaiting():
 		a.decode(ser.read(1))
