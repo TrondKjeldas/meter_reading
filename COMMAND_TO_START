@@ -1,0 +1,1 @@
+./aidon_forward.py --hass_host pi3 --hass_token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI3NjdmNzI4YzQ2ZWE0M2NjODk0MWQyNWE5MzM3YTk1NCIsImlhdCI6MTY5ODUxODY2OSwiZXhwIjoyMDEzODc4NjY5fQ.JYcmG-0FHUxSo6P9ejkNhVu8Uohc6MBK_cX2PQ6zlEw /dev/ttyUSB0
